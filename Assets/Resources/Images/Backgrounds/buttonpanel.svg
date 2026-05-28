@@ -1,0 +1,110 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg" version="1.1">
+  <defs>
+    <!-- Основные цвета палитры -->
+    <color id="colorDark" value="#1A1A1A" />
+    <color id="colorGray" value="#6B6B73" />
+    <color id="colorOffWhite" value="#F7F7F5" />
+    <color id="colorLightBeige" value="#EFEDE7" />
+    <color id="colorGoldDark" value="#C9A84E" />
+    <color id="colorGoldLight" value="#E7C873" />
+
+    <!-- Полупрозрачный белый градиент для панели -->
+    <linearGradient id="panelGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F7F7F5" stop-opacity="0.85" />
+      <stop offset="50%" stop-color="#EFEDE7" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#F7F7F5" stop-opacity="0.85" />
+    </linearGradient>
+
+    <!-- Текстура "каменной крошки" для панели (чуть заметнее, чем на фоне) -->
+    <pattern id="panelTexture" patternUnits="userSpaceOnUse" width="120" height="120">
+      <rect width="120" height="120" fill="none"/>
+      <!-- Серые частицы -->
+      <circle cx="25" cy="40" r="1.5" fill="#6B6B73" opacity="0.2"/>
+      <circle cx="90" cy="15" r="1.8" fill="#6B6B73" opacity="0.15"/>
+      <circle cx="60" cy="95" r="1.2" fill="#6B6B73" opacity="0.12"/>
+      <!-- Золотые частицы -->
+      <circle cx="45" cy="85" r="1.2" fill="#C9A84E" opacity="0.25"/>
+      <circle cx="15" cy="20" r="1" fill="#E7C873" opacity="0.2"/>
+      <circle cx="80" cy="55" r="1.5" fill="#C9A84E" opacity="0.2"/>
+      <!-- Белые блики -->
+      <circle cx="70" cy="25" r="1" fill="#F7F7F5" opacity="0.3"/>
+    </pattern>
+
+    <!-- Золотой градиент для рамки -->
+    <linearGradient id="goldBorderGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#C9A84E" />
+      <stop offset="50%" stop-color="#E7C873" />
+      <stop offset="100%" stop-color="#C9A84E" />
+    </linearGradient>
+    
+    <!-- Фильтр для мягкого свечения рамки -->
+    <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- ПАНЕЛЬ 1000x600 (сцентрирована в SVG) -->
+  <g transform="translate(100, 100)">
+    <!-- Основная панель (полупрозрачная белая) -->
+    <rect x="0" y="0" width="1000" height="600" rx="50" ry="50" 
+          fill="url(#panelGradient)" />
+    
+    <!-- Текстурный слой поверх -->
+    <rect x="0" y="0" width="1000" height="600" rx="50" ry="50" 
+          fill="url(#panelTexture)" 
+          opacity="0.4" />
+    
+    <!-- Основная золотая рамка -->
+    <rect x="0" y="0" width="1000" height="600" rx="50" ry="50" 
+          fill="none" 
+          stroke="url(#goldBorderGradient)" 
+          stroke-width="2.5" 
+          filter="url(#softGlow)" />
+    
+    <!-- Внутренняя тонкая рамка (для объёма) -->
+    <rect x="5" y="5" width="990" height="590" rx="45" ry="45" 
+          fill="none" 
+          stroke="#E7C873" 
+          stroke-width="1" 
+          opacity="0.4" />
+    
+    <!-- Внешняя рамка-тень (очень тонкая) -->
+    <rect x="-2" y="-2" width="1004" height="604" rx="52" ry="52" 
+          fill="none" 
+          stroke="#C9A84E" 
+          stroke-width="1" 
+          opacity="0.2" />
+    
+    <!-- Декоративные золотые уголки (очень деликатные) -->
+    <g opacity="0.25">
+      <!-- Левый верхний угол -->
+      <circle cx="40" cy="40" r="10" fill="none" stroke="#E7C873" stroke-width="1.2"/>
+      <path d="M40 25 L40 55 M25 40 L55 40" stroke="#C9A84E" stroke-width="1"/>
+      
+      <!-- Правый верхний угол -->
+      <circle cx="960" cy="40" r="10" fill="none" stroke="#E7C873" stroke-width="1.2"/>
+      <path d="M960 25 L960 55 M945 40 L975 40" stroke="#C9A84E" stroke-width="1"/>
+      
+      <!-- Левый нижний угол -->
+      <circle cx="40" cy="560" r="10" fill="none" stroke="#E7C873" stroke-width="1.2"/>
+      <path d="M40 545 L40 575 M25 560 L55 560" stroke="#C9A84E" stroke-width="1"/>
+      
+      <!-- Правый нижний угол -->
+      <circle cx="960" cy="560" r="10" fill="none" stroke="#E7C873" stroke-width="1.2"/>
+      <path d="M960 545 L960 575 M945 560 L975 560" stroke="#C9A84E" stroke-width="1"/>
+    </g>
+    
+    <!-- Очень лёгкие искры по краям панели -->
+    <g fill="#C9A84E" opacity="0.15">
+      <circle cx="100" cy="80" r="3"/>
+      <circle cx="900" cy="520" r="3"/>
+      <circle cx="300" cy="550" r="2.5"/>
+      <circle cx="700" cy="70" r="2.5"/>
+      <circle cx="500" cy="30" r="2"/>
+    </g>
+  </g>
+</svg>

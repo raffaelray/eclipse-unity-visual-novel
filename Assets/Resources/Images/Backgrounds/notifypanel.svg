@@ -1,0 +1,57 @@
+<svg width="1000" height="350" viewBox="0 0 1000 350" xmlns="http://www.w3.org/2000/svg" version="1.1">
+  <defs>
+    <!-- Чистый золотой градиент -->
+    <linearGradient id="pureGoldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#C9A84E" />
+      <stop offset="50%" stop-color="#E7C873" />
+      <stop offset="100%" stop-color="#C9A84E" />
+    </linearGradient>
+    
+    <!-- Фильтр для лёгкого свечения -->
+    <filter id="softEdge" x="-5%" y="-5%" width="110%" height="110%">
+      <feGaussianBlur stdDeviation="1.5" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Основа: золотая панель со ВСЕМИ скруглёнными углами -->
+  <rect x="10" y="10" width="980" height="330" rx="30" ry="30" 
+        fill="url(#pureGoldGradient)" 
+        stroke="#1A1A1A" 
+        stroke-width="2.5"
+        filter="url(#softEdge)"/>
+  
+  <!-- ЧЁРНЫЕ ИСКРЫ -->
+  <g fill="#1A1A1A" opacity="0.4">
+    <circle cx="120" cy="80" r="3.5"/>
+    <circle cx="280" cy="150" r="2.5"/>
+    <circle cx="450" cy="200" r="4"/>
+    <circle cx="600" cy="90" r="3"/>
+    <circle cx="750" cy="180" r="2"/>
+    <circle cx="850" cy="250" r="3.5"/>
+    <circle cx="380" cy="300" r="2.5"/>
+    <circle cx="520" cy="40" r="3"/>
+    <circle cx="680" cy="280" r="4.5"/>
+    <circle cx="220" cy="220" r="3"/>
+  </g>
+  
+  <!-- Ещё более мелкие чёрные искры -->
+  <g fill="#1A1A1A" opacity="0.3">
+    <circle cx="180" cy="120" r="1.8"/>
+    <circle cx="320" cy="70" r="1.5"/>
+    <circle cx="490" cy="160" r="2"/>
+    <circle cx="570" cy="310" r="1.5"/>
+    <circle cx="710" cy="130" r="2.2"/>
+    <circle cx="800" cy="50" r="1.5"/>
+    <circle cx="400" cy="180" r="1.8"/>
+    <circle cx="250" cy="280" r="2"/>
+  </g>
+  
+  <!-- Тонкая внутренняя золотая обводка -->
+  <rect x="22" y="22" width="956" height="306" rx="22" ry="22" 
+        fill="none" 
+        stroke="#E7C873" 
+        stroke-width="1.2" 
+        opacity="0.6"/>
+
+</svg>
